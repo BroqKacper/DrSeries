@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:model="clr-namespace:DrSeries.Model;assembly=DrSeries"
+             x:Class="DrSeries.Views.SeriesListPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource MainColorBackground}">
+            <StackLayout Style="{StaticResource NavigationTitleStack}"
+                         BackgroundColor="{StaticResource MainColorForground}">
+                <ImageButton x:Name="ArrowLeft" Source="arrow_left_100.png" WidthRequest="55"
+                             BackgroundColor="Transparent"
+                             Margin="10,0,0,0" Clicked="ArrowLeft_OnClicked"
+                             HeightRequest="45" />
+                <Label x:Name="TitleLabel" Style="{StaticResource NavigationTitleLabel}"
+                       Text="{Binding Title}" />
+                <Label Text="Dr. Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                       FontSize="26"
+                       VerticalOptions="CenterAndExpand"
+                       CharacterSpacing="2"
+                       Margin="0,0,100,0"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{DynamicResource Gray-White}" />
+            </StackLayout>
+            <StackLayout BackgroundColor="{StaticResource MainColorBackground}"
+                         Spacing="10"
+                         Padding="10" Margin="20,0,20,5" />
+            <Label x:Name="ListLabel" Text="Moje listy" TextColor="{StaticResource Gray-White}"
+                   FontFamily="{StaticResource SF-Pro-Text-Heavy}" FontSize="26" VerticalTextAlignment="Start"
+                   Margin="0,-20,0,0"
+                   HorizontalTextAlignment="Center" />
+            <StackLayout Margin="10,5,5,10">
+                <xForms:SfListView x:Name="ListOfMySeriesList"
+                                   ItemsSource="{Binding MySelectedSeriesListCollection}"
+                                   SelectionMode="Single" ItemTapped="ListOfMySeriesList_OnItemTapped"
+                                   Style="{StaticResource SeriesList2}">
+                    <xForms:SfListView.ItemTemplate>
+                        <DataTemplate x:Name="ItemTemplate2">
+                            <Grid Margin="0,0,0,0">
+                                <StackLayout>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid
+                                                ColumnSpacing="1" WidthRequest="550"
+                                                HeightRequest="120" Padding="3">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label
+                                                    FontSize="22" TextColor="White" Grid.Column="0" Grid.Row="0"
+                                                    Text="{Binding Name}"
+                                                    FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                                                    x:DataType="model:SeriesList" />
+
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xForms:SfListView.ItemTemplate>
+                </xForms:SfListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

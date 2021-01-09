@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:textInputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="DrSeries.Views.AddNewSeriesPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource MainColorBackground}">
+            <StackLayout Style="{StaticResource NavigationTitleStack}"
+                         BackgroundColor="{StaticResource MainColorForground}">
+                <ImageButton x:Name="ArrowLeft" Source="arrow_left_100.png" WidthRequest="55"
+                             BackgroundColor="Transparent"
+                             Margin="10,0,0,0" Clicked="ArrowLeft_OnClicked"
+                             HeightRequest="45" />
+                <Label x:Name="TitleLabel" Style="{StaticResource NavigationTitleLabel}"
+                       Text="{Binding Title}" />
+                <Label Text="Dr. Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                       FontSize="26"
+                       VerticalOptions="CenterAndExpand"
+                       CharacterSpacing="2"
+                       Margin="0,0,100,0"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{DynamicResource Gray-White}" />
+            </StackLayout>
+
+            <StackLayout BackgroundColor="{StaticResource MainColorBackground}"
+                         Margin="15,35,15,15" Spacing="15" Padding="10">
+
+                <textInputLayout:SfTextInputLayout Hint="Tytuł"
+                                                   ErrorText="Wymagane pole" HasError="{Binding InputNameIsRequired}"
+                                                   ContainerBackgroundColor="{StaticResource MainColorForground}"
+                                                   EnableHintAnimation="True"
+                                                   FocusedColor="{StaticResource Gray-White}"
+                                                   UnfocusedColor="{StaticResource Gray-White}"
+                                                   ContainerType="Filled">
+                    <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                        <textInputLayout:LabelStyle FontSize="21"
+                                                    FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+                    </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <Entry Text="{Binding InputName}" x:Name="InputNameEntry" HeightRequest="70"
+                           TextChanged="InputNameEntry_OnTextChanged" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                           TextColor="{StaticResource Gray-900}" />
+                </textInputLayout:SfTextInputLayout>
+                <textInputLayout:SfTextInputLayout Hint="Ocena"
+                                                   ErrorText="Wymagane pole"
+                                                   ContainerBackgroundColor="{StaticResource MainColorForground}"
+                                                   EnableHintAnimation="True"
+                                                   FocusedColor="{StaticResource Gray-White}"
+                                                   UnfocusedColor="{StaticResource Gray-White}"
+                                                   ContainerType="Filled">
+                    <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                        <textInputLayout:LabelStyle FontSize="21"
+                                                    FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+                    </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <comboBox:SfComboBox HeightRequest="70" Style="{StaticResource SeriesComboBox}"
+                                         SelectedItem="{Binding SelectedSeriesRate,Mode=TwoWay}"
+                                         DropDownTextColor="{StaticResource Gray-700}"
+                                         MaximumDropDownHeight="150"
+                                         FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                                         TextColor="{StaticResource Gray-900}"
+                                         x:Name="RateComboBox" DataSource="{Binding SeriesRate}"
+                                         DisplayMemberPath="Name" />
+                </textInputLayout:SfTextInputLayout>
+                <textInputLayout:SfTextInputLayout Hint="Rodzaj"
+                                                   ErrorText="Wymagane pole"
+                                                   ContainerBackgroundColor="{StaticResource MainColorForground}"
+                                                   EnableHintAnimation="True"
+                                                   FocusedColor="{StaticResource Gray-White}"
+                                                   UnfocusedColor="{StaticResource Gray-White}"
+                                                   ContainerType="Filled">
+                    <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                        <textInputLayout:LabelStyle FontSize="21"
+                                                    FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+                    </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <comboBox:SfComboBox HeightRequest="70" Style="{StaticResource SeriesComboBox}"
+                                         SelectedItem="{Binding SelectedSeriesKind,Mode=TwoWay}"
+                                         DropDownTextColor="{StaticResource Gray-700}"
+                                         FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                                         TextColor="{StaticResource Gray-900}"
+                                         x:Name="seriesKindComboBox" DataSource="{Binding SeriesKind}"
+                                         DisplayMemberPath="Name" />
+                </textInputLayout:SfTextInputLayout>
+                <textInputLayout:SfTextInputLayout Hint="Dodatkowa recenzja"
+                                                   ContainerBackgroundColor="{StaticResource MainColorForground}"
+                                                   EnableHintAnimation="True"
+                                                   FocusedColor="{StaticResource Gray-White}"
+                                                   UnfocusedColor="{StaticResource Gray-White}"
+                                                   ContainerType="Filled">
+                    <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                        <textInputLayout:LabelStyle FontSize="21"
+                                                    FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+                    </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <Entry Text="{Binding InputReview}" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                           TextColor="{StaticResource Gray-900}"
+                           VerticalTextAlignment="Start" HorizontalTextAlignment="Start"
+                           HeightRequest="100" />
+                </textInputLayout:SfTextInputLayout>
+
+                <ImageButton Clicked="AddNewSeries_OnClicked" BackgroundColor="Transparent" Source="approval.png"
+                             WidthRequest="130" HeightRequest="80" />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,10 @@
+﻿<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+            android:opacity="opaque">
+  <item android:drawable="@color/splash_screen" />
+  <item>
+    <bitmap android:src="@drawable/drseries"
+            android:tileMode="disabled"
+            android:gravity="center" />
+  </item>
+
+</layer-list>

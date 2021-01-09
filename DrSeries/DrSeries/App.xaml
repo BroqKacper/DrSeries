@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="DrSeries.App">
+    <Application.Resources>
+
+
+        <Color x:Key="MainColorBackground">#9966ff</Color>
+        <Color x:Key="MainColorForground">#bb99ff</Color>
+        <Color x:Key="MainTextColor">#ffffff</Color>
+        <Color x:Key="Gray-100">#f6f7f8</Color>
+        <Color x:Key="Gray-200">#ebecef</Color>
+        <Color x:Key="Gray-300">#ced2d9</Color>
+        <Color x:Key="Gray-400">#b2b8c2</Color>
+        <Color x:Key="Gray-500">#959eac</Color>
+        <Color x:Key="Gray-600">#788396</Color>
+        <Color x:Key="Gray-700">#606a7b</Color>
+        <Color x:Key="Gray-800">#4a515e</Color>
+        <Color x:Key="Gray-900">#333942</Color>
+        <Color x:Key="Gray-Black">#000000</Color>
+        <Color x:Key="Gray-White">#ffffff</Color>
+
+        <OnPlatform x:Key="Sf-Pro-Display-Bold" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Display-Bold.otf#SF-Pro-Display-Bold" />
+                <On Platform="iOS" Value="SF-Pro-Display-Bold" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="Sf-Pro-Display-Regular" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Display-Regular.otf#SF-Pro-Display-Regular" />
+                <On Platform="iOS" Value="SF-Pro-Display-Regular" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="Sf-Pro-Display-Medium" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Display-Medium.otf#SF-Pro-Display-Medium" />
+                <On Platform="iOS" Value="SF-Pro-Display-Medium" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="Sf-Pro-Display-Heavy" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Display-Heavy.otf#SF-Pro-Display-Heavy" />
+                <On Platform="iOS" Value="SF-Pro-Display-Heavy" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="Sf-Pro-Display-Semibold" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Display-Semibold.otf#SF-Pro-Display-Semibold" />
+                <On Platform="iOS" Value="SF-Pro-Display-Semibold" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="Sf-Pro-Text-Bold" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Text-Bold.otf#SF-Pro-Text-Bold" />
+                <On Platform="iOS" Value="SF-Pro-Text-Bold" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="SF-Pro-Text-Medium" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Text-Medium.otf#SF-Pro-Text-Medium" />
+                <On Platform="iOS" Value="SF-Pro-Text-Medium" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="SF-Pro-Text-Regular" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Text-Regular.otf#SF-Pro-Text-Regular" />
+                <On Platform="iOS" Value="SF-Pro-Text-Regular" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+        <OnPlatform x:Key="SF-Pro-Text-Heavy" x:TypeArguments="x:String">
+            <OnPlatform.Platforms>
+                <On Platform="Android" Value="SF-Pro-Text-Heavy.otf#SF-Pro-Text-Heavy" />
+                <On Platform="iOS" Value="SF-Pro-Text-Heavy" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+
+
+        <Style x:Key="MainBackground" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{StaticResource MainColorBackground}" />
+        </Style>
+
+        <Style x:Key="SeriesComboBox" TargetType="comboBox:SfComboBox">
+            <Setter Property="ClearButtonColor" Value="{StaticResource Gray-700}" />
+            <Setter Property="DropDownTextColor" Value="{StaticResource Gray-700}" />
+            <Setter Property="DropDownTextSize" Value="20" />
+            <Setter Property="DropDownItemFontFamily" Value="{StaticResource Sf-Pro-Text-Bold}" />
+            <Setter Property="FontFamily" Value="{StaticResource Sf-Pro-Text-Bold}" />
+            <Setter Property="TextSize" Value="20" />
+            <Setter Property="TextColor" Value="{StaticResource Gray-800}" />
+        </Style>
+
+        <Style x:Key="NavigationTitleStack" TargetType="StackLayout">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+        <Style x:Key="NavigationTitleImageButton" TargetType="ImageButton">
+            <Setter Property="BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="Source" Value="arrow_left_100.png" />
+            <Setter Property="WidthRequest" Value="55" />
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style x:Key="NavigationTitleLabel" TargetType="Label">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="{StaticResource SF-Pro-Text-Heavy}" />
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style x:Key="SeriesList" TargetType="xForms:SfListView">
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="IsStickyHeader" Value="True" />
+            <Setter Property="WidthRequest" Value="500" />
+            <Setter Property="ItemSize" Value="{OnIdiom Default=160, Desktop=130}" />
+            <Setter Property="AllowSwiping" Value="True" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="DragStartMode" Value="OnHold, OnDragIndicator" />
+        </Style>
+
+        <Style x:Key="SeriesList2" TargetType="xForms:SfListView">
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="IsStickyHeader" Value="True" />
+            <Setter Property="WidthRequest" Value="500" />
+            <Setter Property="ItemSize" Value="{OnIdiom Default=60, Desktop=130}" />
+            <Setter Property="AllowSwiping" Value="True" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="DragStartMode" Value="OnHold, OnDragIndicator" />
+        </Style>
+
+        <Style x:Key="IconButtons" TargetType="buttons:SfButton">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+    </Application.Resources>
+</Application>

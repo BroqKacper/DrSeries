@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:model="clr-namespace:DrSeries.Model;assembly=DrSeries"
+             xmlns:xForms1="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="DrSeries.Views.SeriesListToAddToListPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource MainColorBackground}">
+            <StackLayout BackgroundColor="{StaticResource MainColorBackground}"
+                         Spacing="10"
+                         Padding="10" Margin="20,5,20,5" />
+            <Label x:Name="ListLabel" Text="Zaznacz by dodać do listy" TextColor="{StaticResource Gray-White}"
+                   FontFamily="{StaticResource SF-Pro-Text-Heavy}" FontSize="26" VerticalTextAlignment="Start"
+                   Margin="0,-20,0,0"
+                   HorizontalTextAlignment="Center" />
+            <StackLayout Margin="10,5,5,10">
+                <xForms:SfListView x:Name="ListOfSeries"
+                                   ItemsSource="{Binding SeriesList}"
+                                   SelectionMode="Multiple" SelectedItem="{Binding SelectedItem}"
+                                   Style="{StaticResource SeriesList}" SwipeOffset="550" SwipeThreshold="30">
+                    <xForms:SfListView.SelectedItemTemplate>
+                        <DataTemplate x:Name="ItemTemplate22">
+                            <Grid Margin="0,0,0,0">
+                                <StackLayout>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid
+                                                ColumnSpacing="1" WidthRequest="500"
+                                                HeightRequest="190" Padding="3">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="okDr.png" WidthRequest="40"
+                                                           VerticalOptions="CenterAndExpand"
+                                                           HorizontalOptions="CenterAndExpand" Margin="-5,0,0,0"
+                                                           HeightRequest="40" />
+                                                    <Image Source="{Binding PosterUrl}" WidthRequest="90"
+                                                           HeightRequest="170" />
+                                                    <StackLayout Orientation="Vertical">
+                                                        <Label
+                                                            FontSize="22" TextColor="White"
+                                                            Text="{Binding Name}"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                                                            x:DataType="model:Series" />
+                                                        <StackLayout>
+                                                            <xForms1:SfRating x:DataType="model:Series" ItemSize="15"
+                                                                              ReadOnly="True"
+                                                                              Margin="10,0,0,0" ItemCount="10"
+                                                                              Value="{Binding Rate}">
+                                                                <xForms1:SfRating.RatingSettings>
+                                                                    <xForms1:SfRatingSettings
+                                                                        RatedFill="{StaticResource Gray-White}"
+                                                                        RatedStroke="White"
+                                                                        UnRatedFill="{StaticResource Gray-700}" />
+                                                                </xForms1:SfRating.RatingSettings>
+                                                            </xForms1:SfRating>
+                                                            <Label
+                                                                FontSize="14"
+                                                                Text="{Binding VoteAverage, StringFormat='Średnia ocen według IMBD: {0}'}"
+                                                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                                                x:DataType="model:Series" />
+                                                            <Label
+                                                                FontSize="14"
+                                                                Text="{Binding VoteCount, StringFormat='Liczba głosów: {0}'}"
+                                                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                                                x:DataType="model:Series" />
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xForms:SfListView.SelectedItemTemplate>
+                    <xForms:SfListView.ItemTemplate>
+                        <DataTemplate x:Name="ItemTemplate2">
+                            <Grid Margin="0,0,0,0">
+                                <StackLayout>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid
+                                                ColumnSpacing="1" WidthRequest="500"
+                                                HeightRequest="190" Padding="3">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="{Binding PosterUrl}" WidthRequest="90"
+                                                           HeightRequest="170" />
+                                                    <StackLayout Orientation="Vertical">
+                                                        <Label
+                                                            FontSize="22" TextColor="White"
+                                                            Text="{Binding Name}"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                                                            x:DataType="model:Series" />
+                                                        <StackLayout>
+                                                            <xForms1:SfRating x:DataType="model:Series" ItemSize="15"
+                                                                              ReadOnly="True"
+                                                                              Margin="10,0,0,0" ItemCount="10"
+                                                                              Value="{Binding Rate}">
+                                                                <xForms1:SfRating.RatingSettings>
+                                                                    <xForms1:SfRatingSettings
+                                                                        RatedFill="{StaticResource Gray-White}"
+                                                                        RatedStroke="White"
+                                                                        UnRatedFill="{StaticResource Gray-700}" />
+                                                                </xForms1:SfRating.RatingSettings>
+                                                            </xForms1:SfRating>
+                                                            <Label
+                                                                FontSize="14"
+                                                                Text="{Binding VoteAverage, StringFormat='Średnia ocen według IMBD: {0}'}"
+                                                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                                                x:DataType="model:Series" />
+                                                            <Label
+                                                                FontSize="14"
+                                                                Text="{Binding VoteCount, StringFormat='Liczba głosów: {0}'}"
+                                                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                                                x:DataType="model:Series" />
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xForms:SfListView.ItemTemplate>
+                </xForms:SfListView>
+            </StackLayout>
+            <buttons:SfButton x:Name="AddToSeriesList" BackgroundColor="{StaticResource MainColorForground}"
+                              CornerRadius="14" HeightRequest="70" HasShadow="True" Margin="30,10,30,10"
+                              Clicked="AddToSeriesList_OnClicked"
+                              TextColor="{StaticResource Gray-White}">
+                <buttons:SfButton.Content>
+                    <StackLayout>
+                        <Label
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                            FontSize="24"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="Dodaj do listy"
+                            TextColor="{DynamicResource Gray-White}" />
+                    </StackLayout>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
