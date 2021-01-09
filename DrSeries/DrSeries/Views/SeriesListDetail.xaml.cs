@@ -1,6 +1,7 @@
 ﻿using System;
 using DrSeries.Model;
 using DrSeries.ViewModel;
+using Syncfusion.ListView.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -77,6 +78,12 @@ namespace DrSeries.Views
         private async void ArrowLeft_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync(false);
+        }
+
+        private async void ListOfSeries_OnItemHolding(object sender, ItemHoldingEventArgs e)
+        {
+            var item = e.ItemData as Series;
+            await Navigation.PushAsync(new SeriesDetailPage(item));
         }
     }
 

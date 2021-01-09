@@ -77,6 +77,7 @@ namespace DrSeries.ViewModel
             }
         }
 
+
         private async Task<Series> CreateSeries()
         {
             var series = new Series();

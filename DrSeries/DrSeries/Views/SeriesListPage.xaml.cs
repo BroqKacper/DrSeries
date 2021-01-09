@@ -1,6 +1,7 @@
 ﻿using System;
 using DrSeries.Model;
 using DrSeries.ViewModel;
+using Syncfusion.ListView.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ItemTappedEventArgs = Syncfusion.ListView.XForms.ItemTappedEventArgs;
@@ -41,5 +42,11 @@ namespace DrSeries.Views
         }
 
         #endregion
+
+        private async void ListOfMySeriesList_OnItemHolding(object sender, ItemHoldingEventArgs e)
+        {
+            var item = e.ItemData as Series;
+            await Navigation.PushAsync(new SeriesDetailPage(item));
+        }
     }
 }

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:DrSeries.Model;assembly=DrSeries"
+             xmlns:xForms="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             x:Class="DrSeries.Views.SeriesDetailPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource MainColorBackground}">
+            <StackLayout Style="{StaticResource NavigationTitleStack}"
+                         BackgroundColor="{StaticResource MainColorForground}">
+                <ImageButton x:Name="ArrowLeft" Source="arrow_left_100.png" WidthRequest="55"
+                             BackgroundColor="Transparent"
+                             Margin="10,0,0,0" Clicked="ArrowLeft_OnClicked"
+                             HeightRequest="45" />
+                <Label x:Name="TitleLabel" Style="{StaticResource NavigationTitleLabel}"
+                       Text="{Binding Title}" />
+            </StackLayout>
+            <StackLayout BackgroundColor="{StaticResource MainColorBackground}"
+                         Spacing="10"
+                         Padding="10" Margin="20,0,20,5">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding CurrentSeries.PosterUrl}" WidthRequest="90"
+                           HeightRequest="170" />
+                    <StackLayout Orientation="Vertical">
+                        <Label
+                            FontSize="22" TextColor="White"
+                            Text="{Binding CurrentSeries.Name}"
+                            HorizontalOptions="CenterAndExpand"
+                            FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                            />
+                        <StackLayout>
+                            <xForms:SfRating  ItemSize="15"
+                                             ReadOnly="True"
+                                             Margin="10,0,0,0" ItemCount="10"
+                                             Value="{Binding CurrentSeries.Rate}">
+                                <xForms:SfRating.RatingSettings>
+                                    <xForms:SfRatingSettings
+                                        RatedFill="{StaticResource Gray-White}"
+                                        RatedStroke="White"
+                                        UnRatedFill="{StaticResource Gray-700}" />
+                                </xForms:SfRating.RatingSettings>
+                            </xForms:SfRating>
+                            <Label
+                                FontSize="14"
+                                Text="{Binding CurrentSeries.VoteAverage, StringFormat='Średnia ocen według IMBD: {0}'}"
+                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                 />
+                            <Label
+                                FontSize="14"
+                                Text="{Binding CurrentSeries.VoteCount, StringFormat='Liczba głosów: {0}'}"
+                                TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                                 />
+                        </StackLayout>
+                    </StackLayout>
+                   
+                </StackLayout>
+ <StackLayout Orientation="Vertical">
+                        <Label
+                            FontSize="14"
+                            Text="{Binding CurrentSeries.Kind, StringFormat='Rodzaj: {0}'}"
+                            TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                             />
+                        <Label
+                            FontSize="14"
+                            Text="{Binding CurrentSeries.Review, StringFormat='Osobista recenzja: {0}'}"
+                            TextColor="{StaticResource Gray-200}" Margin="10,0,0,0" WidthRequest="200" HeightRequest="200"
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}"
+                           />
+                    </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

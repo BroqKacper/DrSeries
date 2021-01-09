@@ -15,7 +15,7 @@
                              BackgroundColor="Transparent"
                              Margin="10,0,0,0" Clicked="ArrowLeft_OnClicked"
                              HeightRequest="45" />
-                <Label Text="Dr. Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                <Label Text="Dr.Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
                        FontSize="26"
                        VerticalOptions="CenterAndExpand"
                        CharacterSpacing="2"
@@ -77,7 +77,7 @@
                 <Label x:Name="TitleLabel" TextColor="{StaticResource Gray-White}"
                        FontFamily="{StaticResource SF-Pro-Text-Heavy}" FontSize="18"
                        Text="{Binding Title}" />
-                <xForms:SfListView x:Name="ListOfSeries"
+                <xForms:SfListView x:Name="ListOfSeries" ItemHolding="ListOfSeries_OnItemHolding"
                                    SelectionMode="Multiple" ItemsSource="{Binding SeriesListDetail}"
                                    Style="{StaticResource SeriesList}">
                     <xForms:SfListView.SelectedItemTemplate>

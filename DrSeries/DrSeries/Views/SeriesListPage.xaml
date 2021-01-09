@@ -15,7 +15,7 @@
                              HeightRequest="45" />
                 <Label x:Name="TitleLabel" Style="{StaticResource NavigationTitleLabel}"
                        Text="{Binding Title}" />
-                <Label Text="Dr. Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                <Label Text="Dr.Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
                        FontSize="26"
                        VerticalOptions="CenterAndExpand"
                        CharacterSpacing="2"
@@ -35,7 +35,7 @@
             <StackLayout Margin="10,5,5,10">
                 <xForms:SfListView x:Name="ListOfMySeriesList"
                                    ItemsSource="{Binding MySelectedSeriesListCollection}"
-                                   SelectionMode="Single" ItemTapped="ListOfMySeriesList_OnItemTapped"
+                                   SelectionMode="Single" ItemTapped="ListOfMySeriesList_OnItemTapped" ItemHolding="ListOfMySeriesList_OnItemHolding"
                                    Style="{StaticResource SeriesList2}">
                     <xForms:SfListView.ItemTemplate>
                         <DataTemplate x:Name="ItemTemplate2">

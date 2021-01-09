@@ -18,7 +18,7 @@
                              HeightRequest="45" />
                 <Label x:Name="TitleLabel" Style="{StaticResource NavigationTitleLabel}"
                        Text="{Binding Title}" />
-                <Label Text="Dr. Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
+                <Label Text="Dr.Series" FontFamily="{StaticResource SF-Pro-Text-Heavy}"
                        FontSize="26"
                        VerticalOptions="CenterAndExpand"
                        CharacterSpacing="2"
