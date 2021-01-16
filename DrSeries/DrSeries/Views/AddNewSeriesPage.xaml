@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:textInputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              x:Class="DrSeries.Views.AddNewSeriesPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource MainColorBackground}">
@@ -25,9 +26,57 @@
                        HorizontalTextAlignment="Center"
                        TextColor="{DynamicResource Gray-White}" />
             </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Margin="0,-10,10,0" Orientation="Horizontal" IsVisible="False">
+                <Label x:Name="ListLabel" Text="Włącz angielskie wyszukiwanie" TextColor="{StaticResource Gray-White}"
+                       FontFamily="{StaticResource SF-Pro-Text-Heavy}" FontSize="18" />
+                <buttons:SfSwitch VisualType="Custom" x:Name="lgSwitch">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup  x:Name="CommonStates">
+                    <VisualState x:Name="On">
+                        <VisualState.Setters>
+                            <Setter Property="SwitchSettings">
+                                <Setter.Value>
+                                    <buttons:DefaultSwitchSettings x:TypeArguments="buttons:OnState" 
+                                                                   ThumbBorderColor="{StaticResource MainColorForground}" TrackBorderColor="Green" 
+                                                                   TrackHeightRequest="25" TrackWidthRequest="75" TrackCornerRadius="4"
+                                                                   ThumbColor="{StaticResource Gray-White}" TrackColor="{StaticResource MainColorForground}"/>
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
 
+                    <VisualState x:Name="Off">
+                        <VisualState.Setters>
+                            <Setter Property="SwitchSettings">
+                                <Setter.Value>
+                                    <buttons:DefaultSwitchSettings x:TypeArguments="buttons:OffState" 
+                                ThumbBorderColor="{StaticResource Gray-White}" ThumbColor="{StaticResource MainColorForground}"
+                                TrackHeightRequest="25" TrackWidthRequest="75" TrackCornerRadius="4"
+                                TrackBorderColor="Green" TrackColor="{StaticResource Gray-White}"/>
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Indeterminate">
+                        <VisualState.Setters>
+                            <Setter Property="SwitchSettings">
+                                <Setter.Value>
+                                    <buttons:DefaultSwitchSettings x:TypeArguments="buttons:IndeterminateState" 
+                                ThumbBorderColor="{StaticResource MainColorForground}" TrackBorderColor="Green" 
+                                TrackHeightRequest="25" TrackWidthRequest="75" TrackCornerRadius="4"
+                                ThumbColor="{StaticResource MainColorForground}" TrackColor="{StaticResource MainColorForground}"/>
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            </buttons:SfSwitch>
+            </StackLayout>
             <StackLayout BackgroundColor="{StaticResource MainColorBackground}"
-                         Margin="15,35,15,15" Spacing="15" Padding="10">
+                         Margin="15,25,15,15" Spacing="15" Padding="10">
 
                 <textInputLayout:SfTextInputLayout Hint="Tytuł"
                                                    ErrorText="Wymagane pole" HasError="{Binding InputNameIsRequired}"

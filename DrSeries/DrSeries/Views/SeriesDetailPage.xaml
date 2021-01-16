@@ -27,10 +27,9 @@
                             FontSize="22" TextColor="White"
                             Text="{Binding CurrentSeries.Name}"
                             HorizontalOptions="CenterAndExpand"
-                            FontFamily="{StaticResource SF-Pro-Text-Heavy}"
-                            />
+                            FontFamily="{StaticResource SF-Pro-Text-Heavy}" />
                         <StackLayout>
-                            <xForms:SfRating  ItemSize="15"
+                            <xForms:SfRating ItemSize="15"
                                              ReadOnly="True"
                                              Margin="10,0,0,0" ItemCount="10"
                                              Value="{Binding CurrentSeries.Rate}">
@@ -45,32 +44,36 @@
                                 FontSize="14"
                                 Text="{Binding CurrentSeries.VoteAverage, StringFormat='Średnia ocen według IMBD: {0}'}"
                                 TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
-                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
-                                 />
+                                FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
                             <Label
                                 FontSize="14"
                                 Text="{Binding CurrentSeries.VoteCount, StringFormat='Liczba głosów: {0}'}"
                                 TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
-                                FontFamily="{StaticResource Sf-Pro-Text-Bold}"
-                                 />
+                                FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
                         </StackLayout>
                     </StackLayout>
-                   
+
                 </StackLayout>
- <StackLayout Orientation="Vertical">
+                <ScrollView Orientation="Vertical" Margin="0,-10,0,0">
+                    <StackLayout>
                         <Label
-                            FontSize="14"
+                            FontSize="16"
                             Text="{Binding CurrentSeries.Kind, StringFormat='Rodzaj: {0}'}"
                             TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
-                            FontFamily="{StaticResource Sf-Pro-Text-Bold}"
-                             />
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
                         <Label
-                            FontSize="14"
+                            FontSize="16"
                             Text="{Binding CurrentSeries.Review, StringFormat='Osobista recenzja: {0}'}"
-                            TextColor="{StaticResource Gray-200}" Margin="10,0,0,0" WidthRequest="200" HeightRequest="200"
-                            FontFamily="{StaticResource Sf-Pro-Text-Bold}"
-                           />
+                            TextColor="{StaticResource Gray-200}" Margin="10,0,0,0" WidthRequest="200"
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+                        <Label
+                            FontSize="16"
+                            Text="{Binding CurrentSeries.Overview, StringFormat='Opis: {0}'}"
+                            TextColor="{StaticResource Gray-200}" Margin="10,0,0,0"
+                            FontFamily="{StaticResource Sf-Pro-Text-Bold}" />
+
                     </StackLayout>
+                </ScrollView>
 
             </StackLayout>
         </StackLayout>

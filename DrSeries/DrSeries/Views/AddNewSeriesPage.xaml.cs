@@ -28,7 +28,7 @@ namespace DrSeries.Views
 
         private async void AddNewSeries_OnClicked(object sender, EventArgs e)
         {
-            //await viewModel.AddNewSeriesKind();
+            //await _viewModel.AddNewSeriesKind();
             var isAdded = await _viewModel.AddNewSeries();
             if (isAdded.Equals(true)) await Navigation.PopAsync(true);
         }

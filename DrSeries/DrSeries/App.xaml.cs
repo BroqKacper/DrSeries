@@ -8,6 +8,8 @@ namespace DrSeries
     public partial class App : Application
     {
         public static string seriesUrlPoster = "https://image.tmdb.org/t/p/w300";
+        public static string plLanguage = "pl";
+        public static string enLanguage = "en";
 
         public App()
         {

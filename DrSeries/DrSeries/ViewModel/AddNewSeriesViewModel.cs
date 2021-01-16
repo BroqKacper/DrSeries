@@ -88,13 +88,12 @@ namespace DrSeries.ViewModel
                 try
                 {
                     var posterUrl = App.seriesUrlPoster;
-                    var response = await movieApi.SearchByNameAsync(InputName, 1, "pl");
-                    foreach (var info in response.Results)
-                    {
-                        posterUrl += info.PosterPath;
-                        SetAnotherInformationAboutSeries(series, info);
-                    }
-
+                        var response = await movieApi.SearchByNameAsync(InputName, 1, "pl");
+                        foreach (var info in response.Results)
+                        {
+                            posterUrl += info.PosterPath;
+                            SetAnotherInformationAboutSeries(series, info);
+                        }
                     series.PosterUrl = posterUrl;
                 }
                 catch (Exception e)
@@ -109,7 +108,6 @@ namespace DrSeries.ViewModel
 
         private static void SetAnotherInformationAboutSeries(Series series, TVShowInfo info)
         {
-            series.Overview = info.OriginalName;
             series.Overview = info.Overview;
             series.Popularity = info.Popularity.ToString();
             series.VoteAverage = info.VoteAverage.ToString();

@@ -11,7 +11,7 @@ namespace DrSeries.Database.Firebase
     public class FirebaseHelper
     {
         private readonly FirebaseClient _firebase =
-            new FirebaseClient("https://dr-series-ce317-default-rtdb.europe-west1.firebasedatabase.app/");
+            new FirebaseClient("https://drseries2-default-rtdb.firebaseio.com/");
 
         #region Get All methods
 

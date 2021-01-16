@@ -209,13 +209,13 @@ namespace DrSeries.ViewModel
 
         #endregion
 
-        //public async Task AddNewSeriesKind()
-        //{
-        //    var series1 = new SeriesKind() {Name = "Film", Oid = 1};
-        //    var series2 = new SeriesKind() {Name = "Serial", Oid = 2};
+        public async Task AddNewSeriesKind()
+        {
+            var series1 = new SeriesKind() {Name = "Film", Oid = 1};
+            var series2 = new SeriesKind() {Name = "Serial", Oid = 2};
 
-        //    await firebaseHelper.AddSeriesKind(series1.Oid, series1.Name);
-        //    await firebaseHelper.AddSeriesKind(series2.Oid, series2.Name);
-        //}
+            await _firebaseHelper.AddSeriesKind(series1.Oid, series1.Name);
+            await _firebaseHelper.AddSeriesKind(series2.Oid, series2.Name);
+        }
     }
 }
